@@ -41,9 +41,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: "Setup main.py"
-      - run: python main.py
+      - run: python -c "import main; main.main()"
         name: "Excuting"
-      - run: ls
       - name: "Uploading artifact"
         uses: actions/upload-artifact@v3
         with:
