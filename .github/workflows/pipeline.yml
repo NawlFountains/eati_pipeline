@@ -9,7 +9,12 @@ jobs:
     name: "Lint"
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: "Linter setup"
+        run: |
+        pip install flake8
+        pip install pylint
+      - name: "Linter execution"
+        run: |
         flake8 main.py
         pylint main.py
   test:
