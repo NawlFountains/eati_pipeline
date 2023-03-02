@@ -11,12 +11,12 @@ jobs:
     steps:
       - name: "Linter setup"
         run: |
-        pip install flake8
-        pip install pylint
+          pip install flake8
+          pip install pylint
       - name: "Linter execution"
         run: |
-        flake8 main.py
-        pylint main.py
+          flake8 main.py
+          pylint main.py
   test:
     need: [ "lint" ]
     name: "Unit test"
@@ -28,9 +28,9 @@ jobs:
           ref: main
           path: ./unit-test
       - run: |
-        ls
-        cd /unit-test
-        python -m unittest --verbose --failfast
+          ls
+          cd /unit-test
+          python -m unittest --verbose --failfast
   build:
     need: [ "test" ]
     name: "Build"
