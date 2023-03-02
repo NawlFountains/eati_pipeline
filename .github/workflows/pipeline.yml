@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Downloading artifact"
-        uses: actions/checkout@v3
+        uses: actions/download-artifact@v3
         with:
           name: build
       - run: echo "Installing in production"
