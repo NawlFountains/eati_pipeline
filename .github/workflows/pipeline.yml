@@ -18,7 +18,7 @@ jobs:
           flake8 main.py
           pylint main.py
   test:
-    need: [ "lint" ]
+    needs: [ "lint" ]
     name: "Unit test"
     runs-on: ubuntu-latest
     steps:
@@ -32,13 +32,13 @@ jobs:
           cd /unit-test
           python -m unittest --verbose --failfast
   build:
-    need: [ "test" ]
+    needs: [ "test" ]
     name: "Build"
     runs-on: ubuntu-latest
     steps:
       - run: echo "placeholder"
   deploy: 
-    need: [ "build" ]
+    needs: [ "build" ]
     name: "Deploying"
     runs-on: ubuntu-latest
     steps:
