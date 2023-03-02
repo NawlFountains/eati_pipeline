@@ -33,17 +33,28 @@ jobs:
           path: ./testing
       - run: |
           mv testing/test.py test.py
-          ls
           python -m unittest --verbose --failfast
   build:
     needs: [ "test" ]
     name: "Build"
     runs-on: ubuntu-latest
     steps:
-      - run: echo "placeholder"
+      - uses: actions/checkout@v3
+        name: "Setup main.py"
+      - run: py main.py
+        name: "Excuting"
+      - name: "Uploading artifact"
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: ./build
   deploy: 
     needs: [ "build" ]
     name: "Deploying"
     runs-on: ubuntu-latest
     steps:
-      - run: echo "placeholder"
+      - name: "Downloading artifact"
+        uses: actions/checkout@v3
+        with:
+          name: build
+      - run: echo "Installing in production"
