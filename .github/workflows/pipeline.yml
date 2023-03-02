@@ -30,7 +30,7 @@ jobs:
           path: ./unit-test
       - run: |
           ls
-          cd /unit-test
+          cd unit-test
           python -m unittest --verbose --failfast
   build:
     needs: [ "test" ]
