@@ -27,10 +27,8 @@ jobs:
         with:
           repository: jmoyano/ubiquitous-bassoon
           ref: main
-          path: ./unit-test
       - run: |
           ls
-          cd unit-test
           python -m unittest --verbose --failfast
   build:
     needs: [ "test" ]
