@@ -43,11 +43,12 @@ jobs:
         name: "Setup main.py"
       - run: python main.py
         name: "Excuting"
+      - run: ls
       - name: "Uploading artifact"
         uses: actions/upload-artifact@v3
         with:
           name: build
-          path: build/index.html
+          path: ./build/index.html
   deploy: 
     needs: [ "build" ]
     name: "Deploying"
