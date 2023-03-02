@@ -25,13 +25,17 @@ jobs:
     steps:
       - name: "Retriving main.py"
         uses: actions/checkout@v3
+        with:
+          path: ./testing
       - name: "Retriving test.py from repository"
         uses: actions/checkout@v3
         with:
           repository: jmoyano/ubiquitous-bassoon
           ref: main
+          path: ./testing
       - run: |
           ls
+          cd testing
           python -m unittest --verbose --failfast
   build:
     needs: [ "test" ]
