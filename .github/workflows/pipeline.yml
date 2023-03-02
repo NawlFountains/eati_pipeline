@@ -15,6 +15,7 @@ jobs:
           pip install pylint
       - name: "Linter execution"
         run: |
+          ls
           flake8 main.py
           pylint main.py
   test:
