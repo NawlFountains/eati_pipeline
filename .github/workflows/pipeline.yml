@@ -32,8 +32,7 @@ jobs:
           ref: main
           path: ./testing
       - run: |
-          ls
-          cd testing
+          mv testing/test.py test.py
           ls
           python -m unittest --verbose --failfast
   build:
