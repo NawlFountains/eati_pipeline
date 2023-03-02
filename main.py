@@ -1,4 +1,9 @@
-""" Creates an index.html file """
+""" Module that encapsule main function """
+import os
 
-with open("index.html", "x", encoding="utf-8") as f:
-    f.close()
+
+def main():
+    """ Creates an folder build with an index.html file """
+    os.mkdir("build")
+    with open("build/index.html", "x", encoding="utf-8") as file_handler:
+        file_handler.close()
