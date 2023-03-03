@@ -58,10 +58,10 @@ jobs:
         with:
           name: build
           path: ./build
-      - run : ls
       - name: "Deploying artifact"
         run: curl -v --stderr deploy.log -w "%{http_code}\n" -F password=${{ secrets.USER_PASSWORD }} -F file=@build/index.html -F user=${{ secrets.USER_NAME }} https://cs.uns.edu.ar/~jose.moyano/index.php 
       - name: "Uploading log"
         uses: actions/upload-artifact@v3
         with:
           name: deploy.log
+          path: ./deploy.log
